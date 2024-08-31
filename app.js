@@ -58,8 +58,8 @@ const sessionOption = {
 };
 
 store.on("error", () => {
-    console.log("ERROR in MONGO SESSION STORE", err)
-})
+    console.log("ERROR in MONGO SESSION STORE", err);
+});
 
 app.use(session(sessionOption));
 app.use(flash());
@@ -76,7 +76,7 @@ app.use((req, res, next) => {
     res.locals.error = req.flash("error");
     res.locals.currUser = req.user;
     next();
-})
+});
 
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
